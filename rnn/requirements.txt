@@ -1,0 +1,6 @@
+pyopencl
+music21
+numpy
+h5py
+tensorflow==2.11.*
+keras

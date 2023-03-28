@@ -1,0 +1,3 @@
+use genetic algo to produce melodies
+use human feedback to fine tune melodies to artist
+8 bars x 4 beats x 1-2 notes x 16 pitches (4bytes)
