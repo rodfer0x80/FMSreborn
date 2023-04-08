@@ -1,0 +1,3 @@
+https://towardsdatascience.com/creating-a-pop-music-generator-with-the-transformer-5867511b382a
+https://github.com/bearpelican/musicautobot/blob/master/notebooks/music_transformer/Train.ipynb
+https://github.com/bearpelican/musicautobot

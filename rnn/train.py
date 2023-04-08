@@ -44,7 +44,7 @@ def train_network():
     train(model, network_input, network_output)
 
 
-def getNotes():
+def get_notes():
     """ Extracts all notes and chords from midi files in the ./midi_songs 
     directory and creates a file with all notes in string format"""
     notes = []
@@ -61,9 +61,9 @@ def getNotes():
             notes_to_parse = midi.flat.notes
         
         for element in notes_to_parse:
-            if isinstance(element, music21.note.Note):
+            if isinstance(element, note.Note):
                 notes.append(str(element.pitch))
-            elif isinstance(element, music21.chord.Chord):
+            elif isinstance(element, chord.Chord):
                 notes.append('.'.join(str(n) for n in element.normalOrder))
         
         with open(NOTES, 'wb') as filepath:
@@ -142,7 +142,7 @@ def train(model, network_input, network_output):
     callbacks_list = [checkpoint]
 
     # experiment with different epoch sizes and batch sizes
-    model.fit(network_input, network_output, epochs=30, batch_size=64, callbacks=callback_list)
+    model.fit(network_input, network_output, epochs=100, batch_size=64, callbacks=callbacks_list)
 
 
 if __name__ == '__main__':
