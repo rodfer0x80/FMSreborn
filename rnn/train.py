@@ -143,7 +143,7 @@ def train(model, network_input, network_output):
     callbacks_list = [checkpoint]
 
     # experiment with different epoch sizes and batch sizes
-    model.fit(network_input, network_output, epochs=3, batch_size=64, callbacks=callbacks_list)
+    model.fit(network_input, network_output, epochs=1000, batch_size=64, callbacks=callbacks_list)
 
 
 if __name__ == '__main__':
