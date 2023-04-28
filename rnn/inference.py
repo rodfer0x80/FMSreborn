@@ -74,9 +74,7 @@ def prepare_sequences(notes, pitchnames, n_vocab):
 
 
 def create_network(network_input, n_vocab):
-    
     """ Creates the structure of the neural network """
-    # TODO: convert to pytorch
     model = Sequential()
     model.add(LSTM(
         512,
@@ -101,7 +99,7 @@ def create_network(network_input, n_vocab):
 
 def generate_notes(model, network_input, pitchnames, n_vocab):
     """ Generate notes from the neural network based on a sequence of notes """
-    
+
     # pick a random sequence from the input as a starting point for the prediction
     start = numpy.random.randint(0, len(network_input)-1)
 
@@ -130,7 +128,7 @@ def generate_notes(model, network_input, pitchnames, n_vocab):
 def create_midi(prediction_output):
     """ Converts the output from the prediction to notes and create a midi file
         from the notes """
-    
+
     offset = 0
     output_notes = []
 

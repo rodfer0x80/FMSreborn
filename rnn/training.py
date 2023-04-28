@@ -32,9 +32,9 @@ if "weights" not in os.listdir("."):
 
 def train_network():
     """ This function calls all other functions and trains the LSTM"""
-    
+
     notes = get_notes()
-    
+
     # get amount of pitch names
     n_vocab = len(set(notes))
 
@@ -46,7 +46,7 @@ def train_network():
 
 
 def get_notes():
-    """ Extracts all notes and chords from midi files in the ./midi_songs 
+    """ Extracts all notes and chords from midi files in the ./data/midi
     directory and creates a file with all notes in string format"""
     notes = []
 
@@ -57,16 +57,16 @@ def get_notes():
 
         try:
             s2 = instrument.partitionByInstrument(midi)
-            notes_to_parse = s2.parts[0].recurse() 
+            notes_to_parse = s2.parts[0].recurse()
         except:
             notes_to_parse = midi.flat.notes
-        
+
         for element in notes_to_parse:
             if isinstance(element, note.Note):
                 notes.append(str(element.pitch))
             elif isinstance(element, chord.Chord):
                 notes.append('.'.join(str(n) for n in element.normalOrder))
-        
+
         with open(NOTES, 'wb') as filepath:
             pickle.dump(notes, filepath)
 
@@ -74,7 +74,7 @@ def get_notes():
 
 def prepare_sequences(notes, n_vocab):
     """ Prepare the sequences which are the inputs for the LSTM """
-    
+
     # sequence length should be changed after experimenting with different numbers and music genres
     sequence_length = 30
 
@@ -130,7 +130,7 @@ def create_network(network_input, n_vocab):
 
 def train(model, network_input, network_output):
     """ train the neural network """
-    
+
     filepath = WEIGHTS+"/weights-{epoch:02d}-{loss:.4f}-bigger.hdf5"
     checkpoint = ModelCheckpoint(
         filepath,
