@@ -1,10 +1,10 @@
-.PHONY: predict
-predict:
-	 scripts/predict.sh
+.PHONY: inference
+predit:
+	 scripts/inference.sh
 
-.PHONY: train
-train:
-	 scripts/train.sh
+.PHONY: training
+training:
+	 scripts/training.sh
 
 .PHONY: clean
 clean:

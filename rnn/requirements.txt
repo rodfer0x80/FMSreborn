@@ -4,3 +4,5 @@ numpy
 h5py
 tensorflow
 keras
+pygame
+visual_midi

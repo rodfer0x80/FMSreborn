@@ -1,3 +1,0 @@
-[ ] clean up code and add comments
-[ ] train 1000 epochs with 3x diff bias
-[ ] write paper with results + work done + reflections
